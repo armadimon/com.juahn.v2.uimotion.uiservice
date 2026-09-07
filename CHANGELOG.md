@@ -40,3 +40,14 @@
 - `_waitForStart` / `_waitForEnd`를 끄면 트리거는 그대로 발사하되 기다리지 않는다
 - `Fire(string)` / `Stop(string)` — 프리젠터 코드가 `MotionPlayer`를 직접 알지 않고도
   `Click`·`Reward` 같은 임의 연출을 부를 수 있게 하는 통로
+
+문서.
+
+- README에 설치 순서(런타임 패키지 · UiService · UniTask), 붙이는 법, 그래프가
+  선언해야 하는 트리거, `_waitForStart`/`_waitForEnd`를 끄면 무엇이 달라지는지,
+  트리거 소유권, 검증 명령을 넣었다
+- README에 **왜 `OnPresenterOpening`이 아니라 `OnPresenterOpened`인지**와
+  **왜 닫힘 완료원을 `OnPresenterClosed`에서 풀면 안 되는지**를 남겼다.
+  나중에 누가 "더 일찍 하는 게 낫지 않나"로 되돌리는 것을 막는다
+- `docs/unity-verification.md` — 컴파일 게이트가 지키지 못하는 동작 확인 목록.
+  실패의 모양 둘("팝업이 박제된다" · "End가 안 보인다")과 각각의 원인을 함께 적었다
