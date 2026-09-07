@@ -1,0 +1,19 @@
+{
+    "name": "juahn.v2.UiMotion.UiService",
+    "rootNamespace": "Juahn.UiMotion.UiService",
+    "references": [
+        "juahn.v2.UiMotion",
+        "juahn.v2.UiMotion.Core",
+        "juahn.UiService",
+        "UniTask"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

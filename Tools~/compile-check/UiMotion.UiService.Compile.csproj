@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    브릿지를 Unity 에디터 없이 컴파일한다.
+
+    런타임 패키지의 소스와, 소비자 프로젝트가 만든 UiService/UniTask 어셈블리를 참조한다.
+    그 어셈블리들은 재배포할 수 없으므로 이 검사는 CI가 아니라 로컬 게이트다.
+
+    UnityManaged / RuntimePackage / RefProject 경로는 run.sh가 넘긴다.
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <AssemblyName>UiMotion.UiService.CompileCheck</AssemblyName>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NoWarn>CS0649;CS0169;CS0414</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(RuntimePackage)/Runtime/Core/**/*.cs" LinkBase="Core" />
+    <Compile Include="$(RuntimePackage)/Runtime/Unity/**/*.cs" LinkBase="Runtime" />
+    <Compile Include="../../Runtime/**/*.cs" LinkBase="Bridge" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Unity.Scripting">
+      <HintPath>$(UnityManaged)/Unity.Scripting.dll</HintPath><Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(UnityManaged)/UnityEngine.CoreModule.dll</HintPath><Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(UnityManaged)/UnityEngine.UIModule.dll</HintPath><Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>$(UnityManaged)/UnityEngine.AnimationModule.dll</HintPath><Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(UnityManaged)/UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(UnityManaged)/UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(UnityUgui)</HintPath><Private>false</Private>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>$(RefProject)/Library/ScriptAssemblies/UniTask.dll</HintPath><Private>false</Private>
+    </Reference>
+    <Reference Include="juahn.UiService">
+      <HintPath>$(RefProject)/Library/ScriptAssemblies/juahn.UiService.dll</HintPath><Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
