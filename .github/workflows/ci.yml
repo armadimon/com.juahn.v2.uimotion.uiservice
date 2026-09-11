@@ -28,8 +28,8 @@ jobs:
           if (!p.dependencies || !p.dependencies['com.juahn.v2.uimotion']) {
             console.error('must depend on com.juahn.v2.uimotion'); process.exit(1);
           }
-          if (p.dependencies['com.juahn.uiservice']) {
-            console.error('UiService는 소비자가 따로 설치하는 외부 패키지다. 의존성에 적으면 안 된다'); process.exit(1);
+          if (!p.dependencies['com.juahn.v2.uiservice'] || p.dependencies['com.juahn.uiservice']) {
+            console.error('브릿지는 UiService V2에 의존해야 한다'); process.exit(1);
           }
           console.log('package fields OK: ' + p.name + '@' + p.version);
           "
@@ -46,7 +46,7 @@ jobs:
           if (a.includePlatforms && a.includePlatforms.length > 0) {
             console.error('브릿지는 런타임 어셈블리다. includePlatforms를 비워 둔다'); process.exit(1);
           }
-          const need = ['juahn.v2.UiMotion', 'juahn.UiService', 'UniTask'];
+          const need = ['juahn.v2.UiMotion', 'juahn.v2.UiService', 'UniTask'];
           for (const r of need) {
             if (!a.references || a.references.indexOf(r) < 0) {
               console.error('asmdef must reference ' + r); process.exit(1);
@@ -78,7 +78,7 @@ jobs:
 
       - name: Note bridge compile gate
         run: |
-          # 이 브릿지는 juahn.UiService.dll과 UniTask.dll을 참조하는데, 그 어셈블리는
+          # 이 브릿지는 juahn.v2.UiService.dll과 UniTask.dll을 참조하는데, 그 어셈블리는
           # 소비자 프로젝트가 컴파일해 만든 결과물이라 재배포할 수 없다. Unity의
           # 매니지드 DLL도 마찬가지다. 그래서 컴파일 검증은 CI가 아니라 로컬 게이트다:
           #

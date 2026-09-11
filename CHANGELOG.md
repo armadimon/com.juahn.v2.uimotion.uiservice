@@ -1,5 +1,9 @@
 # Changelog
 
+## [Unreleased] — IdleMine integration
+
+- Migrate to V2 UiService dependency; add lifecycle, interaction, value and transient features; preserve MotionGraphFeature GUID adapter; update compile-check.
+
 ## [0.1.0] - 미출시
 
 ### 추가

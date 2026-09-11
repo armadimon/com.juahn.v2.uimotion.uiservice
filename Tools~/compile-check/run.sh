@@ -26,7 +26,7 @@ fi
 # --- UiService와 UniTask가 컴파일된 프로젝트를 찾는다 -------------------
 if [ -z "${REF_PROJECT:-}" ]; then
   for candidate in "${PACKAGE_ROOT}"/../../*/ ; do
-    if [ -f "${candidate}Library/ScriptAssemblies/juahn.UiService.dll" ] \
+    if [ -f "${candidate}Library/ScriptAssemblies/juahn.v2.UiService.dll" ] \
        && [ -f "${candidate}Library/ScriptAssemblies/UniTask.dll" ]; then
       REF_PROJECT="$(cd "${candidate}" && pwd)"
       break

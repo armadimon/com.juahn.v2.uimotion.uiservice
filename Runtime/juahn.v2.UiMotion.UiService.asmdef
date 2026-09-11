@@ -4,7 +4,7 @@
     "references": [
         "juahn.v2.UiMotion",
         "juahn.v2.UiMotion.Core",
-        "juahn.UiService",
+        "juahn.v2.UiService",
         "UniTask"
     ],
     "includePlatforms": [],

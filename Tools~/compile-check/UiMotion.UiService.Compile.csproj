@@ -50,8 +50,8 @@
     <Reference Include="UniTask">
       <HintPath>$(RefProject)/Library/ScriptAssemblies/UniTask.dll</HintPath><Private>false</Private>
     </Reference>
-    <Reference Include="juahn.UiService">
-      <HintPath>$(RefProject)/Library/ScriptAssemblies/juahn.UiService.dll</HintPath><Private>false</Private>
+    <Reference Include="juahn.v2.UiService">
+      <HintPath>$(RefProject)/Library/ScriptAssemblies/juahn.v2.UiService.dll</HintPath><Private>false</Private>
     </Reference>
   </ItemGroup>
 

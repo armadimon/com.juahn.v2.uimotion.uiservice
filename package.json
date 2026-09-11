@@ -6,8 +6,9 @@
   "unity": "6000.0",
   "license": "MIT",
   "type": "library",
-  "description": "Bridge between UI Motion and juahn's UiService. Attach MotionGraphFeature next to a MotionPlayer on a UiPresenter and the presenter waits for the Start graph before it reports opened, and for the End graph before it deactivates. UiService must be installed by the consumer.",
+  "description": "UiService V2 element lifecycle, input and value binding to MotionPlayer.",
   "dependencies": {
-    "com.juahn.v2.uimotion": "0.1.0"
+    "com.juahn.v2.uimotion": "0.1.0",
+    "com.juahn.v2.uiservice": "0.1.0"
   }
 }
